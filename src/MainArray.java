@@ -25,11 +25,7 @@ public class MainArray {
             }
             switch (params[0]) {
                 case "list":
-                    try {
-                        printAll();
-                    } catch (NullPointerException e) {
-                        System.out.println("Storage is empty");
-                    }
+                    printAll();
                     break;
                 case "size":
                     System.out.println(ARRAY_STORAGE.size());
@@ -38,34 +34,18 @@ public class MainArray {
                     r = new Resume();
                     r.uuid = uuid;
                     ARRAY_STORAGE.save(r);
-                    try {
-                        printAll();
-                    } catch (NullPointerException e) {
-                        System.out.println("Storage is empty");
-                    }
+                    printAll();
                     break;
                 case "delete":
                     ARRAY_STORAGE.delete(uuid);
-                    try {
-                        printAll();
-                    } catch (NullPointerException e) {
-                        System.out.println("Storage is empty");
-                    }
+                    printAll();
                     break;
                 case "get":
-                    try {
-                        System.out.println("Get: " + ARRAY_STORAGE.get(uuid));
-                    } catch (NullPointerException e) {
-                        System.out.println("Uuid not in storage");
-                    }
+                    System.out.println("Get: " + ARRAY_STORAGE.get(uuid));
                     break;
                 case "clear":
                     ARRAY_STORAGE.clear();
-                    try {
-                        printAll();
-                    } catch (NullPointerException e) {
-                        System.out.println("Storage is empty");
-                    }
+                    printAll();
                     break;
                 case "exit":
                     return;
@@ -79,7 +59,7 @@ public class MainArray {
     static void printAll() {
         Resume[] all = ARRAY_STORAGE.getAll();
         System.out.println("----------------------------");
-        if (all.length == 0) {
+        if (all == null) {
             System.out.println("Empty");
         } else {
             for (Resume r : all) {
