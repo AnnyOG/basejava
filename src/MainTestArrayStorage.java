@@ -16,24 +16,62 @@ public class MainTestArrayStorage {
         ARRAY_STORAGE.save(r2);
         ARRAY_STORAGE.save(r3);
 
-        System.out.println("Get r1: " + ARRAY_STORAGE.get(r1.uuid));
+        try   {
+            System.out.println("Get r1: " + ARRAY_STORAGE.get(r1.uuid));
+        }
+        catch(NullPointerException e)   {
+            System.out.println("Uuid not in storage");
+        }
+
         System.out.println("Size: " + ARRAY_STORAGE.size());
 
-        System.out.println("Get dummy: " + ARRAY_STORAGE.get("dummy"));
+        try   {
+            System.out.println("Get dummy: " + ARRAY_STORAGE.get("dummy"));
+        }
+        catch(NullPointerException e)   {
+            System.out.println("Uuid not in storage");
+        }
 
-        printAll();
+        try   {
+            printAll();
+        }
+        catch(NullPointerException e)   {
+            System.out.println("Storage is empty");
+        }
+
         ARRAY_STORAGE.delete(r1.uuid);
-        printAll();
+
+        System.out.println("Size: " + ARRAY_STORAGE.size());
+
+        try   {
+            printAll();
+        }
+        catch(NullPointerException e)   {
+            System.out.println("Storage is empty");
+        }
+
         ARRAY_STORAGE.clear();
-        printAll();
+        try   {
+            printAll();
+        }
+        catch(NullPointerException e)   {
+            System.out.println("Storage is empty");
+        }
 
         System.out.println("Size: " + ARRAY_STORAGE.size());
     }
 
     static void printAll() {
-        System.out.println("\nGet All");
-        for (Resume r : ARRAY_STORAGE.getAll()) {
-            System.out.println(r);
+        Resume[] all = ARRAY_STORAGE.getAll();
+        System.out.println("----------------------------");
+        if (all.length == 0) {
+            System.out.println("Empty");
+        } else {
+            for (Resume r : all) {
+                System.out.println(r);
+            }
         }
+        System.out.println("----------------------------");
     }
+
 }

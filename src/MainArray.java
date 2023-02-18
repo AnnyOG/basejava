@@ -25,7 +25,12 @@ public class MainArray {
             }
             switch (params[0]) {
                 case "list":
-                    printAll();
+                    try   {
+                        printAll();
+                    }
+                    catch(NullPointerException e)   {
+                        System.out.println("Storage is empty");
+                    }
                     break;
                 case "size":
                     System.out.println(ARRAY_STORAGE.size());
@@ -34,18 +39,38 @@ public class MainArray {
                     r = new Resume();
                     r.uuid = uuid;
                     ARRAY_STORAGE.save(r);
-                    printAll();
+                    try   {
+                        printAll();
+                    }
+                    catch(NullPointerException e)   {
+                        System.out.println("Storage is empty");
+                    }
                     break;
                 case "delete":
                     ARRAY_STORAGE.delete(uuid);
-                    printAll();
+                    try   {
+                        printAll();
+                    }
+                    catch(NullPointerException e)   {
+                        System.out.println("Storage is empty");
+                    }
                     break;
                 case "get":
-                    System.out.println(ARRAY_STORAGE.get(uuid));
+                    try   {
+                        System.out.println("Get: " + ARRAY_STORAGE.get(uuid));
+                    }
+                    catch(NullPointerException e)   {
+                        System.out.println("Uuid not in storage");
+                    }
                     break;
                 case "clear":
                     ARRAY_STORAGE.clear();
-                    printAll();
+                    try   {
+                        printAll();
+                    }
+                    catch(NullPointerException e)   {
+                        System.out.println("Storage is empty");
+                    }
                     break;
                 case "exit":
                     return;
