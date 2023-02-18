@@ -16,26 +16,23 @@ public class MainTestArrayStorage {
         ARRAY_STORAGE.save(r2);
         ARRAY_STORAGE.save(r3);
 
-        try   {
+        try {
             System.out.println("Get r1: " + ARRAY_STORAGE.get(r1.uuid));
-        }
-        catch(NullPointerException e)   {
+        } catch (NullPointerException e) {
             System.out.println("Uuid not in storage");
         }
 
         System.out.println("Size: " + ARRAY_STORAGE.size());
 
-        try   {
+        try {
             System.out.println("Get dummy: " + ARRAY_STORAGE.get("dummy"));
-        }
-        catch(NullPointerException e)   {
+        } catch (NullPointerException e) {
             System.out.println("Uuid not in storage");
         }
 
-        try   {
+        try {
             printAll();
-        }
-        catch(NullPointerException e)   {
+        } catch (NullPointerException e) {
             System.out.println("Storage is empty");
         }
 
@@ -43,18 +40,16 @@ public class MainTestArrayStorage {
 
         System.out.println("Size: " + ARRAY_STORAGE.size());
 
-        try   {
+        try {
             printAll();
-        }
-        catch(NullPointerException e)   {
+        } catch (NullPointerException e) {
             System.out.println("Storage is empty");
         }
 
         ARRAY_STORAGE.clear();
-        try   {
+        try {
             printAll();
-        }
-        catch(NullPointerException e)   {
+        } catch (NullPointerException e) {
             System.out.println("Storage is empty");
         }
 

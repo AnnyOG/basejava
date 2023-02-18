@@ -25,10 +25,9 @@ public class MainArray {
             }
             switch (params[0]) {
                 case "list":
-                    try   {
+                    try {
                         printAll();
-                    }
-                    catch(NullPointerException e)   {
+                    } catch (NullPointerException e) {
                         System.out.println("Storage is empty");
                     }
                     break;
@@ -39,36 +38,32 @@ public class MainArray {
                     r = new Resume();
                     r.uuid = uuid;
                     ARRAY_STORAGE.save(r);
-                    try   {
+                    try {
                         printAll();
-                    }
-                    catch(NullPointerException e)   {
+                    } catch (NullPointerException e) {
                         System.out.println("Storage is empty");
                     }
                     break;
                 case "delete":
                     ARRAY_STORAGE.delete(uuid);
-                    try   {
+                    try {
                         printAll();
-                    }
-                    catch(NullPointerException e)   {
+                    } catch (NullPointerException e) {
                         System.out.println("Storage is empty");
                     }
                     break;
                 case "get":
-                    try   {
+                    try {
                         System.out.println("Get: " + ARRAY_STORAGE.get(uuid));
-                    }
-                    catch(NullPointerException e)   {
+                    } catch (NullPointerException e) {
                         System.out.println("Uuid not in storage");
                     }
                     break;
                 case "clear":
                     ARRAY_STORAGE.clear();
-                    try   {
+                    try {
                         printAll();
-                    }
-                    catch(NullPointerException e)   {
+                    } catch (NullPointerException e) {
                         System.out.println("Storage is empty");
                     }
                     break;
